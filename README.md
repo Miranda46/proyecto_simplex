@@ -20,3 +20,6 @@ Para obtener información detallada sobre los puestos de préstamo de Encicla, s
 
 ## Objetivo  
 El objetivo final es proponer un modelo de optimización lineal que permita mejorar la eficiencia del sistema Encicla, considerando variables como la distribución de bicicletas, la ubicación de estaciones y la demanda de usuarios.  
+
+## Link
+[Documento de Google](https://docs.google.com/document/d/1OZ_rHbJ9ZskrOAjijtfTFhxGbvQtEEer5AwAqgZq7_c)
