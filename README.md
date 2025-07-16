@@ -1,25 +1,36 @@
-# Optimización en el sistema de bicicletas compartidas de Medellín (Encicla)
+# Optimización del sistema de bicicletas compartidas de Medellín (Encicla)
 
-## Datos de los Estudiantes  
-- Felipe Miranda Arboleda  
-- Emilio Porras Mejía  
+## Datos de los Estudiantes
+- Felipe Miranda Arboleda
+- Emilio Porras Mejía
 
-## Introducción  
-Este proyecto tiene como objetivo analizar desde un punto de vista matemático cómo convertir el sistema público Encicla en un modelo de optimización lineal. A través de este enfoque, se busca mover las diferentes variables que constituyen el sistema para observar qué se puede hacer para mejorar el sistema de transporte.
+## Introducción
+Este proyecto aborda un problema de la vida real inspirado en el clásico problema de la bicicleta compartida, un interesante desafío de optimización.
 
-## Metodología  
-El análisis se realizará tomando como referencia el estudio realizado para México por Possani, E., & Castillo, E. (2021), titulado *"Optimizing the inventory and routing decisions in a bike-sharing system"*. Este estudio servirá como base para adaptar las técnicas de optimización al contexto de Medellín.
+### 🚲 Problema de la Bicicleta Compartida para Grupos
+Un grupo de *n* personas necesita trasladarse desde un punto A hasta un punto B en una distancia *d*. Solo existe una bicicleta disponible, que solo puede ser usada por una persona a la vez. Cada persona camina a una velocidad *wᵢ* y pedalea a una velocidad *bᵢ*, donde *bᵢ* > *wᵢ*. El objetivo es minimizar el tiempo en que la última persona llegue a B.
 
-Adicionalmente, se requiere identificar variables fijas relacionadas con los datos de Encicla en Medellín. Parte de estos datos incluyen:  
-- **Cantidad de bicicletas:** 18,000 (al 6 de diciembre del 2021).  
-- **Usuarios registrados:** 114,000.  
-- **Préstamos diarios promedio antes de la pandemia:** 16,000.  
+Este problema fundamental encapsula la esencia de la asignación de recursos limitados para minimizar el tiempo total, un principio clave en la optimización de sistemas de transporte como Encicla.
 
-## Fuentes de Información  
-Para obtener información detallada sobre los puestos de préstamo de Encicla, se utilizará la aplicación móvil *Encicla 24/7*, que permite revisar la ubicación y disponibilidad de las estaciones.
+*Fuente: [The unexpected power of linear programming: an updated collection of surprising applications](https://link.springer.com/article/10.1007/s10479-024-06245-5)*
 
-## Objetivo  
-El objetivo final es proponer un modelo de optimización lineal que permita mejorar la eficiencia del sistema Encicla, considerando variables como la distribución de bicicletas, la ubicación de estaciones y la demanda de usuarios.  
+## Objetivo del Proyecto
+El objetivo de este proyecto es analizar y modelar el sistema de bicicletas públicas Encicla de Medellín para sentar las bases de un modelo de optimización. A través del análisis de datos de las estaciones, se busca generar insumos clave, como matrices de distancia y tiempo, que son fundamentales para futuras estrategias de optimización logística (rebalanceo de bicicletas, planificación de rutas, etc.).
 
-## Link
+## Metodología y Resultados
+El análisis se llevó a cabo en el notebook `proyecto.ipynb` y consistió en los siguientes pasos:
+
+1.  **Carga y Limpieza de Datos:** Se procesó el archivo `Estaciones_EnCicla_AMVA_20250713.csv` para extraer y limpiar los datos de las estaciones, incluyendo sus coordenadas geográficas.
+2.  **Visualización Geográfica:** Se generó un mapa interactivo (`medellin_map.html`) utilizando Folium, que muestra la ubicación de todas las estaciones de Encicla en Medellín.
+3.  **Cálculo de Matriz de Distancias:**
+    *   Se calculó una matriz de distancias directas (Haversine) entre todas las estaciones.
+    *   Se generó una matriz de distancias más precisa utilizando una API externa, cuyos resultados se guardaron en `distance_api_matrix.csv` para evitar consultas repetidas.
+4.  **Cálculo de Matriz de Tiempos:** A partir de la matriz de distancias, se estimó una matriz de tiempos de viaje promedio en bicicleta, asumiendo una velocidad constante de 13.07 km/h.
+
+Estos artefactos (mapa y matrices) son la base para aplicar modelos de optimización lineal que busquen mejorar la eficiencia del sistema.
+
+## Referencia Principal
+El enfoque teórico se inspira en el estudio de Possani, E., & Castillo, E. (2021), *"Optimizing the inventory and routing decisions in a bike-sharing system"*, adaptando sus ideas al contexto de Medellín.
+
+## Link al Documento de Trabajo
 [Documento de Google](https://docs.google.com/document/d/1OZ_rHbJ9ZskrOAjijtfTFhxGbvQtEEer5AwAqgZq7_c)
